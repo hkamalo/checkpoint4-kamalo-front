@@ -1,4 +1,5 @@
 import { React } from 'react';
+import Chat from '../components/Chat';
 
 export default function HomePage() {
   return (
@@ -7,10 +8,7 @@ export default function HomePage() {
         <h2>Home</h2>
         <div className="profil-infos">profil</div>
       </div>
-      <div className="instant-message">
-        <input type="message" />
-        <button type="submit">send</button>
-      </div>
+      <Chat />
     </div>
   );
 }
