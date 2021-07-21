@@ -24,8 +24,7 @@ export default function Chat() {
   }, []);
 
   if (socketServer) {
-    socketServer.on('initialMessageList', (messages) => {
-      console.log(messages);
+    socketServer.on('MessageList', (messages) => {
       setReceivedMessages(messages);
     });
   }
