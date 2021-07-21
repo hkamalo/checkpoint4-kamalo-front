@@ -12,6 +12,10 @@ export default function Chat() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    socketServer?.emit('messageFromClient', {
+      text: newMessageText,
+      author: userName,
+    });
   };
 
   useEffect(() => {
@@ -23,10 +27,6 @@ export default function Chat() {
     socketServer.on('initialMessageList', (messages) => {
       console.log(messages);
       setReceivedMessages(messages);
-    });
-    socketServer.emit('messageFromClient', {
-      text: newMessageText,
-      author: userName,
     });
   }
 
