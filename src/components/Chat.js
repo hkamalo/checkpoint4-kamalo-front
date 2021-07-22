@@ -13,8 +13,8 @@ export default function Chat() {
   const handleSubmit = (e) => {
     e.preventDefault();
     socketServer?.emit('messageFromClient', {
-      text: newMessageText,
-      author: userName,
+      content: newMessageText,
+      sender: userName,
     });
   };
 
