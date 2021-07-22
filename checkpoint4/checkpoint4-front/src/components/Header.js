@@ -41,9 +41,9 @@ export default function Header() {
           <NavLink className="navLink" exact to="/home">
             <Button color="inherit">Home</Button>
           </NavLink>
-          <NavLink className="navLink" exact to="/login">
+          {/* <NavLink className="navLink" exact to="/login">
             <Button color="inherit">Login</Button>
-          </NavLink>
+          </NavLink> */}
         </Toolbar>
       </AppBar>
     </>

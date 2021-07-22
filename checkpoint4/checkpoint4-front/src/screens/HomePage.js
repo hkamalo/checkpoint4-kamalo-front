@@ -34,7 +34,7 @@ export default function HomePage() {
       <div className={classes.profil}>
         {randomUser && <UserProfil user={randomUser} />}
       </div>
-      <Chat />
+      {randomUser && <Chat user={randomUser} />}
     </div>
   );
 }
