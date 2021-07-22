@@ -2,9 +2,26 @@
 /* eslint-disable no-unused-vars */
 import { React, useEffect, useState } from 'react';
 import socketIOClient from 'socket.io-client';
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
 import MessageForm from './MessageForm';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    display: 'flex',
+    flexWrap: 'wrap',
+  },
+  chatbox: {
+    width: '20em',
+    height: '10em',
+    overflowY: 'scroll',
+    fontFamily: 'Tajawal, sans-serif',
+  },
+}));
+
 export default function Chat() {
+  const classes = useStyles();
+
   const [receivedMessages, setReceivedMessages] = useState([]);
   const [socketServer, setsocketServer] = useState(null);
   const [userName, setUserName] = useState('');
@@ -32,7 +49,7 @@ export default function Chat() {
   return (
     <>
       <div className="instant-message">
-        <div className="chat-box">
+        <Paper className={classes.chatbox} elevation={3}>
           <ul>
             {receivedMessages &&
               receivedMessages.map((message) => (
@@ -41,7 +58,7 @@ export default function Chat() {
                 </li>
               ))}
           </ul>
-        </div>
+        </Paper>
         <MessageForm
           userName={userName}
           setUserName={setUserName}
