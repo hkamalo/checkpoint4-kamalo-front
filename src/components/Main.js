@@ -4,11 +4,15 @@ import LoginPage from '../screens/LoginPage';
 
 export default function Main() {
   return (
-    <main>
-      <Switch>
-        <Route exact path="/login" component={LoginPage} />
-        <Route exact path="/home" component={HomePage} />
-      </Switch>
-    </main>
+    <>
+      <div>
+        <main>
+          <Switch>
+            <Route exact path="/login" component={LoginPage} />
+            <Route exact path="/home" component={HomePage} />
+          </Switch>
+        </main>
+      </div>
+    </>
   );
 }

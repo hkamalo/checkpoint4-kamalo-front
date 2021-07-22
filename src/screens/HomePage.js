@@ -1,6 +1,7 @@
 import { React } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Chat from '../components/Chat';
+import UserProfil from '../components/Profil';
 
 const useStyles = makeStyles(() => ({
   home: {
@@ -19,9 +20,7 @@ export default function HomePage() {
   return (
     <div className={classes.home}>
       <div className={classes.profil}>
-        <h2>Profil</h2>
-        <div className="profil-infos">profil A</div>
-        <p>lorem ipsum dolor sit amet, consectetur adip</p>
+        <UserProfil />
       </div>
       <Chat />
     </div>
