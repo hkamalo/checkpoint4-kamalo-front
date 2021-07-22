@@ -13,9 +13,13 @@ const useStyles = makeStyles(() => ({
   },
   chatbox: {
     width: '20em',
-    height: '10em',
+    height: '40em',
     overflowY: 'scroll',
     fontFamily: 'Tajawal, sans-serif',
+  },
+  instantMessage: {
+    margin: 10,
+    padding: 10,
   },
 }));
 
@@ -48,7 +52,8 @@ export default function Chat() {
 
   return (
     <>
-      <div className="instant-message">
+      <div className={classes.instantMessage}>
+        <h2>Chatbox</h2>
         <Paper className={classes.chatbox} elevation={3}>
           <ul>
             {receivedMessages &&
