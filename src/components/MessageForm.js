@@ -13,7 +13,7 @@ const useStyles = makeStyles(() => ({
 
 export default function MessageForm({
   userName,
-  setUserName,
+  // setUserName,
   newMessageText,
   setNewMessageText,
   handleSubmit,
@@ -28,8 +28,7 @@ export default function MessageForm({
           label="username"
           value={userName}
           size="small"
-          required
-          onChange={(e) => setUserName(e.target.value)}
+          disabled
         />
         <TextField
           type="text"

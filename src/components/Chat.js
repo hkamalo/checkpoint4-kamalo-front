@@ -23,12 +23,14 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export default function Chat() {
+export default function Chat({ user }) {
+  const { login } = user[0];
+
   const classes = useStyles();
 
   const [receivedMessages, setReceivedMessages] = useState([]);
   const [socketServer, setsocketServer] = useState(null);
-  const [userName, setUserName] = useState('');
+  const [userName, setUserName] = useState(login.username);
   const [newMessageText, setNewMessageText] = useState('');
 
   const handleSubmit = (e) => {
@@ -65,7 +67,7 @@ export default function Chat() {
           </ul>
         </Paper>
         <MessageForm
-          userName={userName}
+          userName={login.username}
           setUserName={setUserName}
           newMessageText={newMessageText}
           setNewMessageText={setNewMessageText}

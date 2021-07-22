@@ -12,20 +12,18 @@ import FavoriteBorderRounded from '@material-ui/icons/FavoriteBorderRounded';
 import Share from '@material-ui/icons/Share';
 import { useSoftRiseShadowStyles } from '@mui-treasury/styles/shadow/softRise';
 import { useSlopeCardMediaStyles } from '@mui-treasury/styles/cardMedia/slope';
-import { useN01TextInfoContentStyles } from '@mui-treasury/styles/textInfoContent/n01';
-import TextInfoContent from '@mui-treasury/components/content/textInfo';
 
 const useStyles = makeStyles(() => ({
   root: {
-    maxWidth: 304,
+    width: '40em',
     margin: 'auto',
   },
   content: {
     padding: 24,
   },
   avatar: {
-    width: 50,
-    height: 50,
+    width: 150,
+    height: 150,
     border: '2px solid #fff',
     margin: '-48px 32px 0 auto',
     '& > img': {
@@ -34,24 +32,24 @@ const useStyles = makeStyles(() => ({
   },
 }));
 
-export const Profil = React.memo(function UserProfil() {
+export default function UserProfil({ user }) {
+  const { name, picture, email } = user[0];
+  const { first, last } = name;
+
   const cardStyles = useStyles();
   const mediaStyles = useSlopeCardMediaStyles();
   const shadowStyles = useSoftRiseShadowStyles();
-  const textCardContentStyles = useN01TextInfoContentStyles();
   return (
     <Card className={cx(cardStyles.root, shadowStyles.root)}>
       <CardMedia
         classes={mediaStyles}
-        image="https://images.unsplash.com/photo-1517147177326-b37599372b73?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2229&q=80"
+        image="https://images.unsplash.com/photo-1626360052739-03446aabf18a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80"
       />
-      <Avatar className={cardStyles.avatar} src="https://i.pravatar.cc/300" />
+      <Avatar className={cardStyles.avatar} src={picture.large} />
       <CardContent className={cardStyles.content}>
-        <TextInfoContent
-          classes={textCardContentStyles}
-          heading="First Snow Storm"
-          body="Snow storm coming in Sommaroy island, Arctic Norway. This is something that you definitely wanna see in your life."
-        />
+        <p>Firstname: {first}</p>
+        <p>Lastname: {last}</p>
+        <p>Email: {email}</p>
       </CardContent>
       <Box px={2} pb={2} mt={-1}>
         <IconButton>
@@ -63,6 +61,4 @@ export const Profil = React.memo(function UserProfil() {
       </Box>
     </Card>
   );
-});
-
-export default Profil;
+}
